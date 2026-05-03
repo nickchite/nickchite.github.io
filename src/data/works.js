@@ -84,18 +84,15 @@ export const works = [
     collaborators: 'solo',
     duration: '20XX',
     tools: ['instruction score', 'voice', 'deep listening'],
-    cover: '',
-    images: [],
+    cover: '/resources/language-is-music/Day-331_blog.jpg',
+    images: [ '/resources/language-is-music/Day-331_blog.jpg' ],
     video: '',
     audio: '',
-    externalUrl: '',
+    externalUrl: 'https://www.deeplistening.rpi.edu/2023/04/25/day-331-of-a-year-of-deep-listening/',
     externalLabel: 'open project',
     embedUrl: '',
     paragraphs: [
-      'Read aloud a piece of text at a slow natural pace, enunciating each consonant and vowel while tracking transient detail, pitch, and rhythm.',
-      'Repeat the text with variation: either emphasize consonants until the voice behaves like percussion, or elongate vowels until they resolve as melody.',
-      'Continue iterating until the semantic layer dissolves and only the musical behavior of speech remains.',
-      'An instruction score inspired by Alvin Lucier and deep listening practices, designed to recast language as a system of sound.'
+            'An instruction score inspired by Alvin Lucier and deep listening practices, designed to recast language as a system of sound.'
     ]
   },
   {
