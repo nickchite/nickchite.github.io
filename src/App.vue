@@ -2,7 +2,9 @@
   <div class="site-shell">
     <header class="site-header">
       <div class="brand-block">
-        <h1 class="brand-name">nick chite</h1>
+        <h1 class="brand-name">
+          <span v-stutter-text="brandStutterOptions">nick chite</span>
+        </h1>
         <p class="brand-role">music technology · software engineering</p>
       </div>
       <nav aria-label="Primary navigation" class="site-nav">
@@ -28,4 +30,16 @@
 
 <script setup>
 import { RouterLink, RouterView } from 'vue-router';
+
+const brandStutterOptions = {
+  meanMs: 1800,
+  minIntervalMs: 260,
+  pulseIntervalMs: 80,
+  holdMs: 90,
+  pulses: [1, 0.72, 0.42],
+  amplitudeX: 14,
+  amplitudeY: 7,
+  amplitudeRotate: 9,
+  amplitudeScale: 0.08
+};
 </script>

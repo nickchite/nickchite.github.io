@@ -13,7 +13,7 @@
       </div>
     </div>
     <div v-if="caption" class="bubble-label">
-      <h3>{{ caption.title }}</h3>
+      <h3 v-stutter-text>{{ caption.title }}</h3>
       <p v-if="caption.sub">{{ caption.sub }}</p>
     </div>
   </component>

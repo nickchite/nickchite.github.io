@@ -97,6 +97,14 @@ a {
   font-size: clamp(2rem, 5vw, 3.25rem);
   line-height: 0.94;
   letter-spacing: 0.015em;
+  color: #000;
+}
+
+.stutter-text {
+  display: inline-block;
+  transform: translate(var(--stutter-jx), var(--stutter-jy)) rotate(var(--stutter-jr)) scale(var(--stutter-js));
+  transition: transform 56ms steps(1, end);
+  will-change: transform;
 }
 
 .brand-role {
@@ -546,6 +554,13 @@ audio {
 .fade-slide-leave-to {
   opacity: 0;
   transform: translateY(8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stutter-text {
+    transition: none;
+    transform: none;
+  }
 }
 
 @media (max-width: 760px) {

@@ -1,7 +1,7 @@
 <template>
   <section class="stack">
     <article class="panel stack">
-      <h2 class="section-title">Works</h2>
+      <h2 class="section-title" v-stutter-text="sectionTitleStutterOptions">Works</h2>
 
       <div class="works-flow" role="list">
         <Bubble
@@ -21,6 +21,18 @@
 import { computed } from 'vue';
 import Bubble from '../components/Bubble.vue';
 import { works } from '../data/works';
+
+const sectionTitleStutterOptions = {
+  meanMs: 2100,
+  minIntervalMs: 360,
+  pulseIntervalMs: 76,
+  holdMs: 70,
+  pulses: [0.52, 0.34],
+  amplitudeX: 6,
+  amplitudeY: 3,
+  amplitudeRotate: 4,
+  amplitudeScale: 0.03
+};
 
 const sortedWorks = computed(() => {
   return works

@@ -2,7 +2,7 @@
   <section class="stack">
     <article v-if="work" class="panel stack">
       <div class="work-title-row">
-        <h2 class="section-title">{{ work.title }}</h2>
+        <h2 class="section-title" v-stutter-text="sectionTitleStutterOptions">{{ work.title }}</h2>
         <span class="work-title-meta">
           <span>{{ work.year }}</span>
           <span v-if="work.collaborators && work.collaborators !== 'solo'"> · {{ work.collaborators }}</span>
@@ -79,6 +79,18 @@ import { RouterLink, useRoute } from 'vue-router';
 import Bubble from '../components/Bubble.vue';
 import WorkHero from '../components/WorkHero.vue';
 import { getWorkBySlug } from '../data/works';
+
+const sectionTitleStutterOptions = {
+  meanMs: 2100,
+  minIntervalMs: 360,
+  pulseIntervalMs: 76,
+  holdMs: 70,
+  pulses: [0.52, 0.34],
+  amplitudeX: 6,
+  amplitudeY: 3,
+  amplitudeRotate: 4,
+  amplitudeScale: 0.03
+};
 
 const route = useRoute();
 

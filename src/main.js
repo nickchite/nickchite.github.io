@@ -1,6 +1,9 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
+import stutterTextDirective from './directives/stutterText';
 import './styles.css';
 
-createApp(App).use(router).mount('#app');
+const app = createApp(App);
+app.directive('stutter-text', stutterTextDirective);
+app.use(router).mount('#app');
