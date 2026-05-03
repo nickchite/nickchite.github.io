@@ -375,6 +375,11 @@ audio {
   background: rgba(230, 247, 222, 0.5);
 }
 
+.work-hero--audio {
+  width: min(100%, 460px);
+  padding: 0.95rem;
+}
+
 .hero-media {
   display: block;
   max-height: 560px;
@@ -399,8 +404,12 @@ audio {
   margin: 0;
 }
 
-.hero-guitar {
+.hero-embed {
   padding: 0.95rem;
+}
+
+.embed-loader-note {
+  font-size: 0.85rem;
 }
 
 .hero-placeholder {
