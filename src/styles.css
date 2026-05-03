@@ -112,26 +112,37 @@ a {
   flex-wrap: wrap;
 }
 
-.site-nav a {
+.site-nav-link {
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
   padding: 0.45rem 0.85rem;
   border-radius: 8px;
   border: 1px solid var(--accent-burgundy);
-  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease;
+  background: rgba(245, 255, 241, 0.72);
+  box-shadow: var(--shadow);
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
   text-transform: lowercase;
 }
 
-.site-nav a.router-link-active {
-  background: color-mix(in srgb, var(--mint-200) 72%, var(--cream));
-  border-color: color-mix(in srgb, var(--accent-burgundy) 55%, #000);
-  box-shadow: 0 0 0 1px var(--accent-burgundy);
+.site-nav-link.router-link-active {
+  background: color-mix(in srgb, var(--accent-cyan) 11%, var(--paper));
+  color: var(--deep);
+  border-color: color-mix(in srgb, var(--accent-cyan) 28%, var(--accent-burgundy));
+  box-shadow: 0 10px 28px rgba(14, 36, 25, 0.12), inset 0 0 0 1px rgba(20, 184, 212, 0.14);
 }
 
-.site-nav a:hover {
-  background: color-mix(in srgb, var(--mint-200) 72%, var(--cream));
+.site-nav-link:hover {
+  background: color-mix(in srgb, var(--accent-cyan) 11%, var(--paper));
   border-color: var(--accent-burgundy);
-  box-shadow: 0 0 0 1px var(--accent-burgundy), 0 10px 20px rgba(14, 36, 25, 0.16);
-  transform: translateY(-1px);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 44px rgba(14, 36, 25, 0.2), inset 0 0 0 1px var(--accent-burgundy), var(--glow-burgundy);
+}
+
+.site-nav-link:focus-visible {
+  outline: none;
+  border-color: var(--accent-burgundy);
+  box-shadow: 0 0 0 3px rgba(127, 37, 73, 0.18), inset 0 0 0 1px var(--accent-burgundy), var(--shadow);
 }
 
 main {

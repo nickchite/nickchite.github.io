@@ -6,9 +6,9 @@
         <p class="brand-role">music technology · software engineering</p>
       </div>
       <nav aria-label="Primary navigation" class="site-nav">
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/works">Works</RouterLink>
+        <RouterLink to="/" class="site-nav-link">Home</RouterLink>
+        <RouterLink to="/about" class="site-nav-link">About</RouterLink>
+        <RouterLink to="/works" class="site-nav-link">Works</RouterLink>
       </nav>
     </header>
 
