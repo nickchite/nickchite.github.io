@@ -116,19 +116,21 @@ a {
   text-decoration: none;
   padding: 0.45rem 0.85rem;
   border-radius: 8px;
-  border: 1px solid transparent;
-  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+  border: 1px solid var(--accent-burgundy);
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease;
   text-transform: lowercase;
 }
 
 .site-nav a.router-link-active {
   background: color-mix(in srgb, var(--mint-200) 72%, var(--cream));
   border-color: color-mix(in srgb, var(--accent-burgundy) 55%, #000);
+  box-shadow: 0 0 0 1px var(--accent-burgundy);
 }
 
 .site-nav a:hover {
   background: color-mix(in srgb, var(--mint-200) 72%, var(--cream));
-  border: 2px solid var(--accent-burgundy);
+  border-color: var(--accent-burgundy);
+  box-shadow: 0 0 0 1px var(--accent-burgundy), 0 10px 20px rgba(14, 36, 25, 0.16);
   transform: translateY(-1px);
 }
 
