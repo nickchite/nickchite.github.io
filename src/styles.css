@@ -130,13 +130,13 @@ a {
 }
 
 .site-nav a.router-link-active {
-  background: color-mix(in srgb, var(--mint-200) 72%, var(--cream));
+  background: color-mix(in srgb, var(--accent-cyan) 11%, var(--paper));
   border-color: color-mix(in srgb, var(--accent-burgundy) 55%, #000);
   box-shadow: 0 0 0 1px var(--accent-burgundy);
 }
 
 .site-nav a:hover {
-  background: color-mix(in srgb, var(--mint-200) 72%, var(--cream));
+  background: color-mix(in srgb, var(--accent-cyan) 11%, var(--paper));
   border-color: var(--accent-burgundy);
   box-shadow: 0 0 0 1px var(--accent-burgundy), 0 10px 20px rgba(14, 36, 25, 0.16);
   transform: translateY(-1px);
