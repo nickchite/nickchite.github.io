@@ -204,6 +204,7 @@ export const works = [
     video: '',
     audio: '',
     externalUrl: '',
+    codeUrl: 'https://github.com/nickchite/gong-controller',
     externalLabel: 'open project',
     embedUrl: '',
     paragraphs: [
