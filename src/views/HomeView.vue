@@ -35,7 +35,7 @@ import { works } from '../data/works';
 
 const featuredWorks = computed(() => {
   return works
-    .filter((work) => work.featured === true)
+    .filter((work) => work.featured === true && work.hidden !== true)
     .sort((a, b) => Number(b.year) - Number(a.year));
 });
 </script>

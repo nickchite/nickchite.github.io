@@ -1,6 +1,7 @@
 export const workTemplate = {
   slug: 'new-work-slug',
   title: 'new work title',
+  hidden: false,
   featured: false,
   year: '20XX',
   subtitle: '',
@@ -21,6 +22,31 @@ export const workTemplate = {
 };
 
 export const works = [
+  {
+    slug: 'residuals',
+    title: 'Residuals',
+    hidden: true,
+    featured: false,
+    year: '2026',
+    summary: 'A live coding practice that integrates contact microphones on a keyboard to shape raw mechanical resonance into evolving sound.',
+    role: 'composer + live coder',
+    collaborators: 'solo',
+    duration: 'ongoing',
+    tools: ['live coding', 'contact microphones', 'keyboard', 'performance improvisation'],
+    cover: '',
+    images: [],
+    video: '',
+    audio: '',
+    hasGuitar: false,
+    externalUrl: 'https://www.youtube.com/live/Ow_xt4-d9Qs?si=0DJNKCLUWERANAZg&t=338',
+    externalLabel: 'watch performance',
+    embedUrl: 'https://www.youtube.com/embed/Ow_xt4-d9Qs?start=338',
+    paragraphs: [
+      'Residuals is an ongoing live coding practice centered on the physical sound of my keyboard captured through contact microphones.',
+      'By combining code-driven structure with amplified key noise and surface vibration, the performance moves between rhythmic artifact, texture, and pitched material in real time.',
+      'Each set develops as an improvisation: the system listens, reacts, and accumulates traces of prior gestures, leaving audible residual layers over time.'
+    ]
+  },
   {
     slug: 'resonant-life',
     title: 'Resonant Life',
@@ -215,5 +241,5 @@ export const works = [
 ];
 
 export function getWorkBySlug(slug) {
-  return works.find((work) => work.slug === slug);
+  return works.find((work) => work.slug === slug && work.hidden !== true);
 }

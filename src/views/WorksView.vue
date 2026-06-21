@@ -23,7 +23,9 @@ import Bubble from '../components/Bubble.vue';
 import { works } from '../data/works';
 
 const sortedWorks = computed(() => {
-  return [...works].sort((a, b) => {
+  return works
+    .filter((work) => work.hidden !== true)
+    .sort((a, b) => {
     const yearA = parseYear(a.year);
     const yearB = parseYear(b.year);
 
