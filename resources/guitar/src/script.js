@@ -8,6 +8,15 @@
 // (1600x900):     29 / 32
 // (1920x1080):    32 / 32
 
+function initWebGuitar() {
+    if (typeof window.__guitarCleanup === "function") {
+        window.__guitarCleanup();
+    }
+
+    var root = document.getElementById("guitar");
+    if (!root) return;
+    root.innerHTML = "";
+
 var width = 1280 * 37 / 32 / 2,
     height = 720 * 37 / 32 / 2;
 
@@ -224,7 +233,7 @@ for (i = 0; i < strings; ++i) {
 
 // The timer function updates the positions and highlighting of the frets
 var prevMode = "";
-d3.timer(function(time) {
+var animationTimer = d3.timer(function(time) {
     for (i = 0; i < strings; ++i) {
         var svg = d3.select("svg.string-" + i);
 
@@ -264,3 +273,21 @@ function playing(d, svg) {
     if (parseInt(svg.attr("base_note")) + d <= parseInt(svg.attr("current_note"))) return 0;
     return 1;
 }
+
+    window.__guitarCleanup = function() {
+        if (animationTimer && typeof animationTimer.stop === "function") {
+            animationTimer.stop();
+        }
+        for (var j = 0; j < synth.length; ++j) {
+            if (synth[j] && typeof synth[j].dispose === "function") {
+                synth[j].dispose();
+            }
+        }
+        var currentRoot = document.getElementById("guitar");
+        if (currentRoot) {
+            currentRoot.innerHTML = "";
+        }
+    };
+}
+
+window.initWebGuitar = initWebGuitar;
