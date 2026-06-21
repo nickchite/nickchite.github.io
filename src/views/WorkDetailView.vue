@@ -22,16 +22,14 @@
       </div>
 
       <WorkHero
-        v-if="heroType === 'video' || heroType === 'audio' || heroType === 'embed'"
+        v-if="heroType !== 'image' && heroType !== 'none'"
         :type="heroType"
         :source="heroSource"
         :title="work.title"
         :initials="initials(work.title)"
       />
 
-      <div v-if="work.images?.length" class="media-row detail-gallery">
-        <Bubble v-for="src in work.images" :key="src" :src="src" :alt="work.title" />
-      </div>
+      <WorkGallery :items="work.images" :title="work.title" />
 
       <audio v-if="work.audio" controls :src="work.audio">
         Your browser does not support the audio element.
@@ -76,8 +74,8 @@
 <script setup>
 import { computed } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
-import Bubble from '../components/Bubble.vue';
 import WorkHero from '../components/WorkHero.vue';
+import WorkGallery from '../components/WorkGallery.vue';
 import { getWorkBySlug } from '../data/works';
 
 const sectionTitleStutterOptions = {
@@ -98,12 +96,10 @@ const work = computed(() => getWorkBySlug(route.params.slug));
 
 const heroType = computed(() => {
   if (!work.value) return 'none';
-  if (work.value.images?.length) return 'image';
+  if (work.value.images.length) return 'image';
   if (work.value.video) return 'video';
   if (work.value.hasGuitar) return 'guitar';
   if (work.value.embedUrl) return 'embed';
-  if (work.value.audio) return 'audio';
-  if (work.value.embed?.kind) return 'embed';
   return 'none';
 });
 
@@ -112,8 +108,6 @@ const heroSource = computed(() => {
   if (heroType.value === 'image') return work.value.images[0];
   if (heroType.value === 'video') return work.value.video;
   if (heroType.value === 'embed') return work.value.embedUrl;
-  if (heroType.value === 'audio') return work.value.audio;
-  if (heroType.value === 'embed') return work.value.embed;
   return '';
 });
 
