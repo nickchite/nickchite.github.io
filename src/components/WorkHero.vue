@@ -2,6 +2,16 @@
   <div class="work-hero">
     <img v-if="type === 'image'" :src="source" :alt="title" class="hero-media" />
 
+    <iframe
+      v-else-if="type === 'embed'"
+      :src="source"
+      :title="`${title} embedded media`"
+      class="hero-embed"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+
     <video v-else-if="type === 'video'" controls class="hero-media">
       <source :src="source" type="video/mp4" />
     </video>

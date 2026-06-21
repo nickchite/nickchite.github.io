@@ -34,7 +34,7 @@ export const works = [
     tools: ['Web Audio API', 'Tone.JS', 'Vue 3', 'Vue Flow'],
     cover: '/resources/resonant-life/live.png',
     images: ['/resources/resonant-life/start.png', '/resources/resonant-life/live.png'],
-    video: '/resources/resonant-life/demo.mp4',
+    video: '',
     audio: '',
     hasGuitar: false,
     externalUrl: 'https://nickchite.github.io/WebAudio.ResonantLife/',

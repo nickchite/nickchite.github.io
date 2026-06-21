@@ -21,9 +21,19 @@
         </a>
       </div>
 
-      <WorkHero v-if="heroType !== 'image'" :type="heroType" :source="heroSource" :title="work.title" :initials="initials(work.title)" />
+      <WorkHero
+        v-if="heroType !== 'image' && heroType !== 'none'"
+        :type="heroType"
+        :source="heroSource"
+        :title="work.title"
+        :initials="initials(work.title)"
+      />
 
       <WorkGallery :items="work.images" :title="work.title" />
+
+      <audio v-if="work.audio" controls :src="work.audio">
+        Your browser does not support the audio element.
+      </audio>
 
       <div v-if="work.tools && work.tools.length" class="chip-row">
         <span v-for="tool in work.tools" :key="tool" class="code-chip">{{ tool }}</span>
@@ -35,7 +45,7 @@
         </p>
       </div>
 
-      <div v-if="work.embedUrl" class="embed-wrap">
+      <div v-if="work.embedUrl && heroType !== 'embed'" class="embed-wrap">
         <iframe
           :src="work.embedUrl"
           class="work-embed"
@@ -51,10 +61,6 @@
           <source :src="work.video" type="video/mp4" />
         </video>
       </div>
-
-      <audio v-if="work.audio && heroType !== 'audio'" controls :src="work.audio">
-        Your browser does not support the audio element.
-      </audio>
     </article>
 
     <article v-else class="panel stack">
@@ -80,8 +86,8 @@ const heroType = computed(() => {
   if (!work.value) return 'none';
   if (work.value.images.length) return 'image';
   if (work.value.video) return 'video';
-  if (work.value.audio) return 'audio';
   if (work.value.hasGuitar) return 'guitar';
+  if (work.value.embedUrl) return 'embed';
   return 'none';
 });
 
@@ -89,7 +95,7 @@ const heroSource = computed(() => {
   if (!work.value) return '';
   if (heroType.value === 'image') return work.value.images[0];
   if (heroType.value === 'video') return work.value.video;
-  if (heroType.value === 'audio') return work.value.audio;
+  if (heroType.value === 'embed') return work.value.embedUrl;
   return '';
 });
 
